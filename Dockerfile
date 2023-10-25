@@ -1,5 +1,4 @@
 FROM gradle:8.1-jdk17
-WORKDIR /
-COPY / .
-RUN gradle installDist
-CMD ./build/install/app/bin/app
+COPY /build/libls .
+RUN gradle installShadowDist
+CMD ["java","-jar","crud-1.0-SNAPSHOT-all.jar"]
